@@ -4,7 +4,7 @@ using System.IO;
 
 namespace OpenCvSharp.Demo
 {
-    public class FaceDetector_Manager : WebCamera
+    public class FaceDetector_Manager : WebCamera 
     {
 
         [SerializeField] protected TextAsset faces;
@@ -18,13 +18,7 @@ namespace OpenCvSharp.Demo
         {
             base.Awake();
 
-#if UNITY_EDITOR_OSX
             forceFrontalCamera = true;
-#elif UNITY_STANDALONE_OSX
-            forceFrontalCamera = true;
-#else
-            forceFrontalCamera = false;
-#endif
 
             string shapesFilePath = Application.dataPath + "/Data/" + shapesFileName;
             byte[] shapesBytes = File.ReadAllBytes(shapesFilePath);
